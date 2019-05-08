@@ -1,0 +1,37 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.1.211:3306/km?characterEncoding=UTF-8
+        username: root
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        initialSize: 3
+        maxActive: 20
+        minIdle: 3
+        maxWait: 60000
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        filters: stat, wall, log4j
+        jpa:
+        hibernate:
+        ddl-auto: update
+        show-sql: true
+        format_sql: true
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        http:
+        encoding:
+        charset: UTF-8
+        enabled: true
+        force: true
+
+task:
+    cron:0 0/5 * * * ?
